@@ -2,7 +2,8 @@
   <div v-if="addressLine" class="address-card">
       <div class="address-card__line">{{ addressLine }}</div>
       <div class="address-card__btn-wrapper">
-        <b-button class="address-card__btn" @click="onAddButtonClick">Here</b-button>
+        <b-button class="address-card__btn" variant="outline-secondary"
+          @click="onAddButtonClick">Here</b-button>
       </div>
   </div>
 </template>
@@ -53,16 +54,6 @@ export default {
   padding: $padding-datarow 0;
   .address-card__btn-wrapper {
     padding-left: 1em;
-    /* TODO: Overriding BS styles, but actually should create a custom button component
-       Same styles are overridden in AddressConfirmation.vue too */
-    .address-card__btn {
-      background-color: $color-btn-primary;
-      border-color: $color-btn-primary;
-      color: $color-font-header;
-      &:hover {
-        background-color: $color-btn-primary--hover;
-      }
-    }
   }
 }
 </style>

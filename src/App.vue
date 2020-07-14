@@ -1,9 +1,9 @@
 <template>
-		<div id="app">
-			<v-appcontainer id="app-container" />
-      <v-mapmodal />
-      <v-messagemodal />
-		</div>
+  <div id="app">
+    <v-appcontainer id="app-container" />
+    <v-mapmodal />
+    <v-messagemodal />
+  </div>
 </template>
 
 <script>
@@ -41,11 +41,10 @@ export default {
 <style lang="scss">
 #app {
   color: $color-font-primary;
-
-	/* BS overrides */
-	legend {
-			font-size: $font-size-reduced;
-			color: $color-input-label;
-	}	
+  /* BS overrides */
+  legend {
+    font-size: $font-size-reduced;
+    color: $color-input-label;
+  }
 }
 </style>

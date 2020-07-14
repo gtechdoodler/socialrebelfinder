@@ -3,7 +3,7 @@
     <b-row align-h="center">
       <b-col lg="8">
         <div class="app-container__header">
-          <h2 class="app-container__title">Social Rebel Finder</h2>
+          <h3 class="app-container__title">Social Rebel Finder</h3>
         </div>
       </b-col>
     </b-row>
@@ -51,7 +51,7 @@ export default {
   .app-container__header {
     position: relative;
     margin-top: 1em;
-    padding: 1.5em;
+    padding: $padding-std-container;
     .app-container__title {
       margin-block-end: 0;
       font-weight: bold;
@@ -59,7 +59,7 @@ export default {
     }    
   }
   .app-container__explanation {
-    padding: 1.5em;
+    padding: $padding-std-container;
     margin-bottom: 2em;
     line-height: 1.5em;
     background-color: $color-para-background;

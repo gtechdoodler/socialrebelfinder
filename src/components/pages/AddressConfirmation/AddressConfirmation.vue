@@ -142,6 +142,8 @@ export default {
       background-color: $color-btn-primary;
       border-color: $color-btn-primary;
       color: $color-font-header;
+      font-size: .9em;
+      font-weight: bold;      
       &:hover {
         background-color: $color-btn-primary--hover;
       }

@@ -60,6 +60,7 @@ export default {
         this.focus(); return;
       }
       this.$store.dispatch('address/search', { postcode: this.searchInput }).catch(error => {
+        this.isValidPostcode = false;
         this.feedback = 'Postcode does not exist';
         this.focus();
       });
