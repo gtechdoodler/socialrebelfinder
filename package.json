@@ -2,11 +2,11 @@
   "name": "socialrebelfinder",
   "version": "1.0.1",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "deploy": "gh-pages -d dist"
+    "serve": "cross-env NODE_ENV=development vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production vue-cli-service build",
+    "test:unit": "cross-env NODE_ENV=test vue-cli-service test:unit",
+    "test:e2e": "cross-env NODE_ENV=test vue-cli-service test:e2e",
+    "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
   },
   "homepage": "https://gtechdoodler.github.io/socialrebels",
   "dependencies": {
@@ -28,9 +28,12 @@
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
+    "babel-plugin-webpack-alias": "^2.1.2",
     "chai": "^4.1.2",
     "chromedriver": "83",
+    "cross-env": "^7.0.2",
     "geckodriver": "^1.19.1",
+    "null-loader": "^4.0.0",
     "sass": "^1.26.9",
     "sass-loader": "^9.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",

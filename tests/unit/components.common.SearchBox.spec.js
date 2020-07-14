@@ -17,7 +17,7 @@ describe('components/common/SearchBox.vue', () => {
       },
       localVue
     });
-    expect(wrapper.find('.input').attributes('maxlength')).to.equal('8');
+    expect(wrapper.find('.search-box__input').attributes('maxlength')).to.equal('8');
   });
   // Spinner
   it('renders a progress spinner when showSpinner prop is boolean true', () => {
@@ -39,6 +39,6 @@ describe('components/common/SearchBox.vue', () => {
       },
       localVue
     });
-    expect(wrapper.find('.feedback').text()).to.equal(validFeedback);
+    expect(wrapper.find('.search-box__feedback').text()).to.equal(validFeedback);
   });
 });

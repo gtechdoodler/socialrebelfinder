@@ -62,7 +62,7 @@ export default {
       font-size: 1.5rem;
       &:hover {
         cursor: pointer;
-        color: $color-btn-primary--hover;
+        opacity: .8;
       }
     }
     .search-box__input {
@@ -82,7 +82,7 @@ export default {
     }
     .search-box__feedback {
       position: absolute;
-      bottom: calc(-20px + #{$padding-std-container});
+      bottom: calc(-1.5em + #{$padding-std-container});
       left: $padding-std-container;
       font-size: $font-size-reduced;
       color: $color-input-error;
