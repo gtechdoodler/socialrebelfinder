@@ -23,7 +23,7 @@
         <b-row align-h="center">
           <b-col>
             <div class="address-confirmation__footer-tasks">
-              <b-button class="address-confirmation__icon-button"
+              <b-button class="address-confirmation__icon-button" variant="primary"
                 @click="onReportThemClick">Report Them</b-button>
             </div>
           </b-col>
@@ -136,18 +136,6 @@ export default {
     display: flex;
     justify-content: flex-end;
     padding: 1em 0;
-    /* TODO: Overriding BS styles, but actually should create a custom button component
-       Same styles are overridden in AddressCard.vue too */    
-    .address-confirmation__icon-button {
-      background-color: $color-btn-primary;
-      border-color: $color-btn-primary;
-      color: $color-font-header;
-      font-size: .9em;
-      font-weight: bold;      
-      &:hover {
-        background-color: $color-btn-primary--hover;
-      }
-    }
   }
 }
 </style>

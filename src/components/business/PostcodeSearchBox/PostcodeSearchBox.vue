@@ -2,9 +2,10 @@
   <v-searchbox class="postcode-search-box"
     ref="searchBox" placeholder="Enter Postcode" maxlength="8"
     v-model="searchInput"
-    :validInput="isValidPostcode"
+    :validInput="isValidInput && isValidSearch"
     :feedback="feedback"
     :showSpinner="isSearching"
+    @keydown="onInputKeyDown"
     @keydown.enter="onInputKeyDownEnter"
     @search="onSearch" />
 </template>
@@ -21,23 +22,23 @@ export default {
   },
   data: () => ({
     searchInput: '',
-    isValidPostcode: false,
-    feedback: ''
+    isValidInput: true,
+    isValidSearch: true
   }),
-  watch: {
-    searchInput: {
-      handler(val) {
-        this.isValidPostcode = validatePostcode(this.searchInput);
-        this.feedback = this.isValidPostcode ? 'Looks good' : '';
-      }
-    }
-  },
   computed: {
 
     // TODO: Replace literals with namespaced consts
     ...mapState('address', [
       'isSearching'
-    ])
+    ]),
+
+    // computed: feedback
+    // purp: To provide visual feedback status. An invalid 'search' message
+    // will always take priority
+    feedback() {
+      return !this.isValidSearch ? 'Postcode not found' :
+        !this.isValidInput ? 'Invalid postcode format' : '';
+    }    
   },
   methods: {
 
@@ -49,31 +50,30 @@ export default {
 
     // Internal
 
-    setFeedback() {
-      this.feedback = !this.isValidPostcode
-        ? 'Invalid postcode format' 
-        : '';
-    },
-
     search() {
-      if (!this.isValidPostcode) {
-        this.focus(); return;
-      }
+      this.isValidInput = validatePostcode(this.searchInput);
+      if (!this.isValidInput) return;
       this.$store.dispatch('address/search', { postcode: this.searchInput }).catch(error => {
-        this.isValidPostcode = false;
-        this.feedback = 'Postcode does not exist';
+        this.isValidSearch = false;
         this.focus();
       });
     },
 
+    // handler: onInputKeyDown
+    // purp: Here, the user is obviously typing, so just want to reset state
+    // This could have been a watch, however, I want to investigate
+    // performance of watch observers vs event handlers
+    onInputKeyDown(e) {
+      this.isValidInput = true;
+      this.isValidSearch = true;
+    },
+
     onInputKeyDownEnter(e) {
       if (e.target && e.target.blur) e.target.blur();
-      this.setFeedback();
       this.search();
     },
 
     onSearch() {
-      this.setFeedback();
       this.search();
     }
   }

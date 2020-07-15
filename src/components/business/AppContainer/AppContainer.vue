@@ -10,8 +10,10 @@
     <b-row class="body" align-h="center">
       <b-col v-if="!selectedAddress" lg="8">
         <p class="app-container__explanation">
-          Inconsiderate folk, both young and old, continue to disobey the main man, Boris, and the <span class="highlight">social distancing</span> rules his government
-          have laid out. Bring out your inner 'dirty rat' and report these flaming eediots. <strong>Where do they live?</strong></p>
+          Inconsiderate folk, both young and old, continue to disobey the main man, Boris, and the
+          <span class="app-container__highlight">social distancing</span> rules his government
+          have laid out. Bring out your inner 'dirty rat' and report these flaming eediots.
+          <strong>Where do they live?</strong></p>
       </b-col>
       <b-col lg="8">
         <keep-alive>
@@ -63,10 +65,10 @@ export default {
     margin-bottom: 2em;
     line-height: 1.5em;
     background-color: $color-para-background;
-    .highlight {
+    .app-container__highlight {
       display: inline-block;
       padding: 0 .25em;
-      background-color: $color-highlighter-blue;
+      background-color: $color-highlighter-yellow;
     }
   }
 }
