@@ -1,14 +1,11 @@
-<template>
+<template functional>
   <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true"
       data-projection="EPSG:4326" style="height: 400px">
-    <vl-view :zoom="zoom" :center="coordinates"></vl-view>
+    <vl-view :zoom="props.zoom" :center="props.coordinates"></vl-view>
     <vl-geoloc>
       <template slot-scope="geoloc">
-        <vl-feature v-if="coordinates" id="position-feature">
-          <vl-geom-point :coordinates="coordinates"></vl-geom-point>
-          <vl-style-box>
-            <vl-style-icon src="_media/marker.png" :scale="0.4" :anchor="[0.5, 1]"></vl-style-icon>
-          </vl-style-box>
+        <vl-feature v-if="props.coordinates" id="position-feature">
+          <vl-geom-point :coordinates="props.coordinates"></vl-geom-point>
         </vl-feature>
       </template>
     </vl-geoloc>

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getState, mapState } from 'vuex';
+import { mapState } from 'vuex';
 import { validatePostcode } from 'utils/addressUtils.js';
 import SearchBox from 'components/common/SearchBox';
 
@@ -53,7 +53,15 @@ export default {
     search() {
       this.isValidInput = validatePostcode(this.searchInput);
       if (!this.isValidInput) return;
-      this.$store.dispatch('address/search', { postcode: this.searchInput }).catch(error => {
+      this.$store.dispatch('address/search', { postcode: this.searchInput })
+        .then(() => {
+          // Clearing the search input after a successful search, but
+          // not sure this is the best UX decision. Perhaps a little component
+          // refactor is needed, and only clearing input when 'Report Them' is submitted in
+          // the next step. This would be a good AB test.
+          this.searchInput = '';
+        })
+        .catch(error => {
         this.isValidSearch = false;
         this.focus();
       });

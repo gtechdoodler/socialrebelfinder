@@ -1,16 +1,9 @@
 <template>
   <b-container class="app-container">
-    <b-row align-h="center">
-      <b-col lg="8">
-        <div class="app-container__header">
-          <h3 class="app-container__title">Social Rebel Finder</h3>
-        </div>
-      </b-col>
-    </b-row>
     <b-row class="body" align-h="center">
       <b-col v-if="!selectedAddress" lg="8">
         <p class="app-container__explanation">
-          Inconsiderate folk, both young and old, continue to disobey the main man, Boris, and the
+          Inconsiderate folk, both young and old, continue to disobey the main man, Boris, and ignore
           <span class="app-container__highlight">social distancing</span> rules his government
           have laid out. Bring out your inner 'dirty rat' and report these flaming eediots.
           <strong>Where do they live?</strong></p>
@@ -50,19 +43,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  .app-container__header {
-    position: relative;
-    margin-top: 1em;
-    padding: $padding-std-container;
-    .app-container__title {
-      margin-block-end: 0;
-      font-weight: bold;
-      color: $color-font-header;
-    }    
-  }
   .app-container__explanation {
-    padding: $padding-std-container;
-    margin-bottom: 2em;
+    padding: 1.25rem $padding-std-container $padding-std-container;
+    margin-bottom: $padding-std-container;
     line-height: 1.5em;
     background-color: $color-para-background;
     .app-container__highlight {
