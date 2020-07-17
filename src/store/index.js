@@ -3,7 +3,7 @@ import vuex from 'vuex';
 import address from '../store/address/index.js';
 import error from '../store/error/index.js';
 import mapStore from '../store/mapStore/index.js';
-import { registerStatusError } from './httpStatusConfig.js';
+import { registerStatusError } from '../gateway/httpStatusConfig.js';
 
 // Provide some user friendly messages for known http status codes
 registerStatusError({ status: '400', message: 'There was a problem with the address service.' });

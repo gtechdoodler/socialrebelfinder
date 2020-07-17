@@ -1,6 +1,6 @@
-import { findStatusError } from '../httpStatusConfig.js';
+import { findStatusError } from './httpStatusConfig.js';
 import request from './request';
-import { store } from '../index.js';
+import { store } from '../store/index.js';
 
 // func: extractMessageFromError
 // Relying on 'error.response.data.Message' obj structure never changing, is dangerous.

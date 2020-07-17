@@ -62,9 +62,10 @@ export default {
           this.searchInput = '';
         })
         .catch(error => {
-        this.isValidSearch = false;
-        this.focus();
-      });
+          this.isValidSearch = false;
+          this.focus();
+        }
+      );
     },
 
     // handler: onInputKeyDown
